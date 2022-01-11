@@ -7,10 +7,10 @@ import java.util.Set;
 
 public class Omnivore extends Animal{
     Set<Plant> plantDiet = new LinkedHashSet<>();
-    private double maxFoodSize;
+    private double maxFoodSize = 1; // sets default value for area if not changed
 
     public Omnivore(String name) {
-        super(name);
+        this(name, 50, 2,2);
     }
 
     public Omnivore(String name, double weight, double height, double lemgth) {
@@ -39,7 +39,7 @@ public class Omnivore extends Animal{
 
     @Override
     public String toString() {
-        return "Omnivore '"+ super.getName() + "'{" +
+        return "Omnivore"+ super.toString() + "{" +
                 "plantDiet=" + plantDiet +
                 ", maxFoodSize=" + maxFoodSize +
                 '}';

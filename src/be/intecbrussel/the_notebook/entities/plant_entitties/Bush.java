@@ -1,11 +1,11 @@
 package be.intecbrussel.the_notebook.entities.plant_entitties;
 
 public class Bush extends Plant{
-    private String fruit;
-    private LeafType leaftype;
+    private String fruit = "Berries";           // sets default value for area if not changed
+    private LeafType leaftype = LeafType.HEART; // sets default value for area if not changed
 
     public Bush(String name){
-        super(name);
+        this(name, 1);
     }
 
     public Bush(String name, double height) {
@@ -30,7 +30,7 @@ public class Bush extends Plant{
 
     @Override
     public String toString() {
-        return "Bush '" + super.getName() + "'{" +
+        return "Bush" + super.toString() + "{" +
                 "fruit='" + fruit + '\'' +
                 ", leaftype='" + leaftype + '\'' +
                 '}';

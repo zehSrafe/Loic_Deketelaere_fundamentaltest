@@ -1,10 +1,10 @@
 package be.intecbrussel.the_notebook.entities.plant_entitties;
 
 public class Tree extends Plant{
-    private LeafType leafType;
+    private LeafType leafType = LeafType.ROUND; // sets default value for area if not changed
 
     public Tree(String name) {
-        super(name);
+        this(name, 5);
     }
 
     public Tree(String name, double height) {
@@ -21,7 +21,7 @@ public class Tree extends Plant{
 
     @Override
     public String toString() {
-        return "Tree '" + super.getName() + "'{" +
+        return "Tree" + super.toString() + "{" +
                 "leafType=" + leafType +
                 '}';
     }

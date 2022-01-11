@@ -9,7 +9,7 @@ import be.intecbrussel.the_notebook.entities.plant_entitties.Plant;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class ForestNotebook {
     private List<Carnivore> carnivores = new LinkedList<>();
@@ -53,18 +53,36 @@ public class ForestNotebook {
     }
 
     public void addPlant(Plant plant){
-        plants.add(plant);
-        plantCount++;
+        if (!plants.contains(plant)){
+            plants.add(plant);
+            plantCount++;
+        } else {
+            System.out.println("Plant '" + plant.getName() + "' already in Pokedex");
+        }
     }
 
     public void addAnimal(Animal animal){
-        animals.add(animal);
         if (animal.getClass() == Carnivore.class){
-            carnivores.add((Carnivore) animal);
+            if (!carnivores.contains(animal)){
+                carnivores.add((Carnivore) animal);
+                animals.add(animal);
+            } else {
+                System.out.println("Carnivorus animal '" + animal.getName() + "' already in Pokedex");
+            }
         } else if (animal.getClass() == Omnivore.class){
-            omnivores.add((Omnivore) animal);
+            if (!omnivores.contains(animal)){
+                omnivores.add((Omnivore) animal);
+                animals.add(animal);
+            } else {
+                System.out.println("Omnivorus animal '" + animal.getName() +"' already in Pokedex");
+            }
         } else if (animal.getClass() == Herbivore.class){
-            herbivores.add((Herbivore) animal);
+            if (!herbivores.contains(animal)){
+                herbivores.add((Herbivore) animal);
+                animals.add(animal);
+            } else {
+                System.out.println("Herbivore animal '" + animal.getName() +"' already in Pokedex");
+            }
         } else {
             System.out.println("Uncategorised entity");
         }
@@ -80,14 +98,26 @@ public class ForestNotebook {
     }
 
     public void sortAnimalsByName(){
-        animals = List.of((Animal[]) Stream.of((Animal[]) animals.toArray())
+        animals = animals.stream()
                 .sorted(Comparator.comparing(Animal::getName))
-                .toArray());
+                .collect(Collectors.toList());
+    }
+
+    public void sortAnimalsByHeight(){
+        animals = animals.stream()
+                .sorted(Comparator.comparing(Animal::getHeight))
+                .collect(Collectors.toList());
     }
 
     public void sortPlantsByName(){
-        plants = List.of((Plant[]) Stream.of((Plant[]) plants.toArray())
+        plants = plants.stream()
                 .sorted(Comparator.comparing(Plant::getName))
-                .toArray());
+                .collect(Collectors.toList());
+    }
+
+    public void sortPlantsByHeight(){
+        plants = plants.stream()
+                .sorted(Comparator.comparing(Plant::getHeight))
+                .collect(Collectors.toList());
     }
 }

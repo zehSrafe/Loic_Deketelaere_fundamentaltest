@@ -24,4 +24,11 @@ public class Plant {
     public void setHeight(double height) {
         this.height = (height > 0) ? height : -height;
     }
+
+    @Override
+    public String toString() {
+        return " '" + name + "' {" +
+                "height=" + height +
+                '}';
+    }
 }

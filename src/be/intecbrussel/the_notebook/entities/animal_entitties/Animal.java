@@ -44,4 +44,13 @@ public class Animal {
     public double getLemgth() {
         return lemgth;
     }
+
+    @Override
+    public String toString() {
+        return " '" + name + "' {" +
+                " weight=" + weight +
+                ", height=" + height +
+                ", lemgth=" + lemgth +
+                " }";
+    }
 }
