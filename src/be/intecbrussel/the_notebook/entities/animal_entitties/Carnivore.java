@@ -1,7 +1,7 @@
 package be.intecbrussel.the_notebook.entities.animal_entitties;
 
 public class Carnivore extends Animal{
-    private double maxFoodSize = 1; // sets default value for area if not changed
+    private double maxFoodSize = getHeight() / 2; // sets default value
 
     public Carnivore(String name) {
         this(name, 40, 1.2, 2);

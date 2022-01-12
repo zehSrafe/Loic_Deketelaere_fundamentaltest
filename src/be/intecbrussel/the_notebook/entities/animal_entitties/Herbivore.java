@@ -6,7 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Herbivore extends Animal{
-    Set<Plant> plantDiet = new LinkedHashSet<>();
+    private Set<Plant> plantDiet = new LinkedHashSet<>();
 
     public Herbivore(String name) {
         this(name, 30, 1, 1.5);

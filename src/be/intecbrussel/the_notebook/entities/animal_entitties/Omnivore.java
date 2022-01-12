@@ -6,8 +6,8 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Omnivore extends Animal{
-    Set<Plant> plantDiet = new LinkedHashSet<>();
-    private double maxFoodSize = 1; // sets default value for area if not changed
+    private Set<Plant> plantDiet = new LinkedHashSet<>();
+    private double maxFoodSize = getHeight() / 2; // sets default value
 
     public Omnivore(String name) {
         this(name, 50, 2,2);

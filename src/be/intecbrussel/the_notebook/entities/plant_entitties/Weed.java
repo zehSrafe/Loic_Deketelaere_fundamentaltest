@@ -1,7 +1,7 @@
 package be.intecbrussel.the_notebook.entities.plant_entitties;
 
 public class Weed extends Plant{
-    private double area = 6;    // sets default value for area if not changed
+    private double area = 6;    // sets default value
 
     public Weed(String name){
         super(name, 0.42);

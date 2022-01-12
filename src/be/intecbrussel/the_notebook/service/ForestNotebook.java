@@ -57,7 +57,7 @@ public class ForestNotebook {
             plants.add(plant);
             plantCount++;
         } else {
-            System.out.println("Plant '" + plant.getName() + "' already in Pokedex");
+            System.out.println("Plant '" + plant.getName() + "' already in notebook");
         }
     }
 
@@ -66,27 +66,29 @@ public class ForestNotebook {
             if (!carnivores.contains(animal)){
                 carnivores.add((Carnivore) animal);
                 animals.add(animal);
+                animalCount++;
             } else {
-                System.out.println("Carnivorus animal '" + animal.getName() + "' already in Pokedex");
+                System.out.println("Carnivorus animal '" + animal.getName() + "' already in notebook");
             }
         } else if (animal.getClass() == Omnivore.class){
             if (!omnivores.contains(animal)){
                 omnivores.add((Omnivore) animal);
                 animals.add(animal);
+                animalCount++;
             } else {
-                System.out.println("Omnivorus animal '" + animal.getName() +"' already in Pokedex");
+                System.out.println("Omnivorus animal '" + animal.getName() +"' already in notebook");
             }
         } else if (animal.getClass() == Herbivore.class){
             if (!herbivores.contains(animal)){
                 herbivores.add((Herbivore) animal);
                 animals.add(animal);
+                animalCount++;
             } else {
-                System.out.println("Herbivore animal '" + animal.getName() +"' already in Pokedex");
+                System.out.println("Herbivore animal '" + animal.getName() +"' already in notebook");
             }
         } else {
             System.out.println("Uncategorised entity");
         }
-        animalCount++;
     }
 
     public void printNotebook(){

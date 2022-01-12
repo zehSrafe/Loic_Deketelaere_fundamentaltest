@@ -1,13 +1,13 @@
 package be.intecbrussel.the_notebook.entities.animal_entitties;
 
 public class Animal {
-    private String name;
+    private final String name;
     private double weight;
     private double height;
     private double lemgth;
 
     public Animal(String name) {
-        this(name, 2.5, 2.5, 2.5);
+        this(name, 1, 1, 1);
     }
 
     public Animal(String name, double weight, double height, double lemgth) {

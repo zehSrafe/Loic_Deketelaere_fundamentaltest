@@ -1,8 +1,8 @@
 package be.intecbrussel.the_notebook.entities.plant_entitties;
 
 public class Bush extends Plant{
-    private String fruit = "Berries";           // sets default value for area if not changed
-    private LeafType leaftype = LeafType.HEART; // sets default value for area if not changed
+    private String fruit = "None";           // sets default value
+    private LeafType leaftype = LeafType.UNKNOWN; // sets default value
 
     public Bush(String name){
         this(name, 1);

@@ -1,11 +1,11 @@
 package be.intecbrussel.the_notebook.entities.plant_entitties;
 
 public class Plant {
-    private String name;
+    private final String name;
     private double height;
 
     public Plant(String name){
-        this(name, 1);
+        this(name, 0);
     }
 
     public Plant(String name, double height) {

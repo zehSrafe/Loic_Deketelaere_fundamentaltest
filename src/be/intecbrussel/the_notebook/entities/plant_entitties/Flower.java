@@ -1,7 +1,7 @@
 package be.intecbrussel.the_notebook.entities.plant_entitties;
 
 public class Flower extends Plant{
-    private Scent smell = Scent.MUSKEY; // sets default value for area if not changed
+    private Scent smell = Scent.UNKNOWN; // sets default value
 
     public Flower(String name){
         this(name, 0.2);

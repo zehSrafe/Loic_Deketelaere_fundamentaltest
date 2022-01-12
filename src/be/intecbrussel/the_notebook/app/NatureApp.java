@@ -11,32 +11,40 @@ import java.util.Set;
 
 public class NatureApp {
     public static void main(String[] args) {
-        Set<Plant> plantDiet = new LinkedHashSet<>();
         ForestNotebook notebook = new ForestNotebook();
-        Bush bush = new Bush("yBush");
-        Bush abush = new Bush("aBush");
-        Flower flower = new Flower("lili of the valley");
-        Tree tree = new Tree("tallTree");
-        Weed weed = new Weed("G13");
-        Weed weedPlant = new Weed("Gorilla glue");
+        Set<Plant> plantDiet = new LinkedHashSet<>();
 
-        plantDiet.add(weedPlant);
+        Bush bush = new Bush("Blue bush", 0.78);
+        Bush abush = new Bush("Dead bush", 0.02);
+        Flower flower = new Flower("lili of the valley", 0.33);
+        Tree tree = new Tree("Tall tree", 356);
+        Weed weed = new Weed("G13", 9);
+        Weed middleWeed = new Weed("Gorilla glue", 1.02);
+        tree.setLeafType(LeafType.HEART);
+        flower.setSmell(Scent.MUSKEY);
+        bush.setFruit("Glowing bluberries");
+        bush.setLeaftype(LeafType.ROUND);
+        abush.setFruit("Golden nuggets");
+        weed.setArea(4.99);
+        middleWeed.setArea(99.01);
+
+        plantDiet.add(middleWeed);
         plantDiet.add(weed);
 
-        Carnivore blue = new Carnivore("Blue from jurassic world", 1, 1, 1);
-        Carnivore trex = new Carnivore("Tyrannosaurus");
-        Carnivore giganotosaurus = new Carnivore("Giganotosaurus");
-        Herbivore diplodocus = new Herbivore("Diplodocus");
-        Herbivore theropods = new Herbivore("Theropods");
-        Herbivore giraffatitan = new Herbivore("Giraffatitan");
-        Omnivore khaan = new Omnivore("Khaan");
-        Omnivore avimimus = new Omnivore("Avimimus");
-        Omnivore nomingia = new Omnivore("Nomingia");
+        Carnivore blue = new Carnivore("Blue from jurassic world", 2, 9.6, 6);
+        Carnivore trex = new Carnivore("Tyrannosaurus", 8, 6, 1.2);
+        Carnivore giganotosaurus = new Carnivore("Giganotosaurus", 8999, 55665.6, 2);
+        Herbivore diplodocus = new Herbivore("Diplodocus", 223, 5.5, 698);
+        Herbivore theropods = new Herbivore("Theropods", 236, 4.7, 5);
+        Herbivore giraffatitan = new Herbivore("Giraffatitan", 98, 41, 2);
+        Omnivore khaan = new Omnivore("Khaan", 12, 0, 213);
+        Omnivore avimimus = new Omnivore("Avimimus", 89, 4, 4);
+        Omnivore nomingia = new Omnivore("Nomingia", 56, 122, 14);
+        blue.setMaxFoodSize(89);
         diplodocus.setPlantDiet(plantDiet);
         theropods.setPlantDiet(plantDiet);
         giraffatitan.setPlantDiet(plantDiet);
         khaan.setPlantDiet(plantDiet);
-        avimimus.setPlantDiet(plantDiet);
         nomingia.setPlantDiet(plantDiet);
 
 
@@ -46,7 +54,7 @@ public class NatureApp {
         notebook.addPlant(flower);
         notebook.addPlant(tree);
         notebook.addPlant(weed);
-        notebook.addPlant(weedPlant);
+        notebook.addPlant(middleWeed);
         notebook.addAnimal(blue);
         notebook.addAnimal(trex);
         notebook.addAnimal(trex);
@@ -60,29 +68,42 @@ public class NatureApp {
         notebook.addAnimal(avimimus);
         notebook.addAnimal(nomingia);
 
-        notebook.printNotebook();
-        System.out.println(notebook.getPlantCount());
-        System.out.println(notebook.getAnimalCount());
-//        System.out.println(notebook.getCarnivores());
-//        System.out.println(notebook.getHerbivores());
-//        System.out.println(diplodocus);
-//        diplodocus.addPlantToDiet(flower);
-//        System.out.println(diplodocus);
-//        System.out.println(notebook.getOmnivores());
 
-        notebook.sortAnimalsByName();
+
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+
+        notebook.printNotebook();
+
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+
+        avimimus.addPlantToDiet(bush);
+        notebook.getCarnivores().forEach(System.out::println);
+        notebook.getOmnivores().forEach(System.out::println);
+        notebook.getHerbivores().forEach(System.out::println);
+
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+
         notebook.sortPlantsByName();
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
+        notebook.sortAnimalsByName();
         notebook.printNotebook();
 
-        notebook.sortAnimalsByHeight();
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+
         notebook.sortPlantsByHeight();
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
+        notebook.sortAnimalsByHeight();
         notebook.printNotebook();
 
+        System.out.println(" ");
+
+        System.out.println("Plant count: " + notebook.getPlantCount());
+        System.out.println("Animal count: " + notebook.getAnimalCount());
     }
 }

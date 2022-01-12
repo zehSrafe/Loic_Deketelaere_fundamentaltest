@@ -1,7 +1,7 @@
 package be.intecbrussel.the_notebook.entities.plant_entitties;
 
 public class Tree extends Plant{
-    private LeafType leafType = LeafType.ROUND; // sets default value for area if not changed
+    private LeafType leafType = LeafType.UNKNOWN; // sets default value
 
     public Tree(String name) {
         this(name, 5);
