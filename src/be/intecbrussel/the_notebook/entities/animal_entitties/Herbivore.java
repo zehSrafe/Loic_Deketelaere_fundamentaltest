@@ -29,13 +29,15 @@ public class Herbivore extends Animal{
     }
 
     public void printDiet(){
-        plantDiet.forEach(System.out::println);
+        plantDiet.forEach(plant -> System.out.println(plant.getName()));
     }
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        plantDiet.forEach((plant -> sb.append('"').append(plant.getName()).append("\" ")));
         return "Herbivore"+ super.toString() + "{" +
-                "plantDiet=" + plantDiet +
+                "plantDiet=" + sb +
                 '}';
     }
 }

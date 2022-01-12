@@ -37,10 +37,16 @@ public class Omnivore extends Animal{
         plantDiet.add(plant);
     }
 
+    public void printDiet(){
+        plantDiet.forEach(plant -> System.out.println(plant.getName()));
+    }
+
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        plantDiet.forEach((plant -> sb.append('"').append(plant.getName()).append("\" ")));
         return "Omnivore"+ super.toString() + "{" +
-                "plantDiet=" + plantDiet +
+                "plantDiet=" + sb +
                 ", maxFoodSize=" + maxFoodSize +
                 '}';
     }
