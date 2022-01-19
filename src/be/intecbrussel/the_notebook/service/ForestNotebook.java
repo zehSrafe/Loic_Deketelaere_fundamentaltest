@@ -77,7 +77,6 @@ public class ForestNotebook {
         } else {
             System.out.println(animal.getClass().getSimpleName() + " animal '" + animal.getName() + "' already in notebook");
         }
-
     }
 
     public void printNotebook(){
