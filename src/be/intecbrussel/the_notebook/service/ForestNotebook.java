@@ -15,8 +15,8 @@ public class ForestNotebook {
     private List<Carnivore> carnivores = new LinkedList<>();
     private List<Omnivore> omnivores = new LinkedList<>();
     private List<Herbivore> herbivores = new LinkedList<>();
-    private static int plantCount = 0;
-    private static int animalCount = 0;
+    private int plantCount = 0;
+    private int animalCount = 0;
     private List<Animal> animals = new LinkedList<>();
     private List<Plant> plants = new LinkedList<>();
 
@@ -62,32 +62,20 @@ public class ForestNotebook {
     }
 
     public void addAnimal(Animal animal){
-        if (animal.getClass() == Carnivore.class){
-            if (!carnivores.contains(animal)){
+        if (!animals.contains(animal)) {
+            animals.add(animal);
+            animalCount ++;
+            if (Carnivore.class.equals(animal.getClass())) {
                 carnivores.add((Carnivore) animal);
-                animals.add(animal);
-                animalCount++;
-            } else {
-                System.out.println("Carnivorus animal '" + animal.getName() + "' already in notebook");
-            }
-        } else if (animal.getClass() == Omnivore.class){
-            if (!omnivores.contains(animal)){
+            } else if (Omnivore.class.equals(animal.getClass())) {
                 omnivores.add((Omnivore) animal);
-                animals.add(animal);
-                animalCount++;
-            } else {
-                System.out.println("Omnivorus animal '" + animal.getName() +"' already in notebook");
-            }
-        } else if (animal.getClass() == Herbivore.class){
-            if (!herbivores.contains(animal)){
+            } else if (Herbivore.class.equals(animal.getClass())) {
                 herbivores.add((Herbivore) animal);
-                animals.add(animal);
-                animalCount++;
             } else {
-                System.out.println("Herbivore animal '" + animal.getName() +"' already in notebook");
+                System.out.println("Uncategorised entity");
             }
         } else {
-            System.out.println("Uncategorised entity");
+            System.out.println(animal.getClass().getSimpleName() + " animal '" + animal.getName() + "' already in notebook");
         }
     }
 
